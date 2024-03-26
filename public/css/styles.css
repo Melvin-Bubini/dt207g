@@ -1,0 +1,212 @@
+body {
+    width: 100vw;
+    padding: 0%;
+    margin: 0%;
+    overflow-x: hidden;
+}
+
+
+/* HEADER STYLES*/
+
+/* STÖRRE SKÄRMAR */
+header {
+    display: flex;
+    align-items: center;
+    background-color: green;
+}
+
+#logo {
+    width: 5em;
+}
+
+#logo-text {
+
+    width: fit-content;
+    text-decoration: none;
+    margin-left: 1em;
+    width: 15%;
+}
+
+#open-menu {
+    display: none;
+}
+
+#nav-menu {
+    display: none;
+}
+
+#bigScreenList {
+    display: flex;
+    width: 65%;
+    list-style-type: none;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1em;
+}
+
+.menyLänkar {
+    text-decoration: none;
+
+    padding: 0.5em;
+}
+
+.menyLänkar:hover {
+    cursor: pointer;
+    color: white;
+    border: solid black 3px;
+}
+
+/*menyknapp för att öppna menyn*/
+
+#open-menu {
+    margin-left: auto;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border: solid black 2px;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.menu-btn .menu-text {
+    display: inline-block;
+}
+
+.menu-btn:hover {
+    box-shadow: 0 0px 5px black;
+}
+
+.menu-icon {
+    margin-right: 10Px;
+}
+
+.bars {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    margin: 5px 0;
+}
+
+/*menyknapp för stäng*/
+.close {
+    padding: 10px 15px;
+}
+
+/*roterar två streck till ett kryss*/
+.cross1 {
+    width: 25px;
+    transform: rotate(45deg);
+    position: relative;
+    top: 5px;
+}
+
+.cross2 {
+    width: 25px;
+    transform: rotate(135deg);
+    position: relative;
+    top: -3px;
+}
+
+/* MOBILLÄGE */
+@media screen and (max-width: 800px) {
+
+    #bigScreenList {
+        display: none;
+    }
+
+    #open-menu {
+        display: flex;
+    }
+
+    nav {
+        box-shadow: 0 0px 10px black;
+        font-size: 26px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        display: none;
+        z-index: 1000;
+        width: 50%;
+    }
+
+    nav ul {
+        width: 100%;
+        list-style-type: none;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    nav li {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    nav a {
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    nav a:hover {
+        cursor: pointer;
+        color: white;
+    }
+   
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Formulär */
+
+form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input[type=text],
+textarea {
+    width: 50%;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 10em;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* FOOTER STYLES */
+
+footer {
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-top: 2em;
+}
+
+footer p {
+    width: fit-content;
+    margin-left: 2em;
+    font-weight: 600;
+    margin-top: 1em;
+}

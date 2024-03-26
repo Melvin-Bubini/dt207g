@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.scss">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="shortcut icon" href="/pictures/favicon.ico" type="image/x-icon"> -->
+
+</head>
+
+<body>
+    <header>
+        <!-- <a href="index.html"><img id="logo" src="/pictures/standardLogo.svg" alt="Logga"></a> -->
+        <a id="logo-text" href="index.html">
+            <h3>Moment-3</h3>
+        </a>
+        <ul id="bigScreenList">
+            <li><a class="menyLänkar" href="">Startida</a></li>
+            <li><a class="menyLänkar" href="">Kurser</a></li>
+            <li><a class="menyLänkar" href="">Om Sidan</a></li>
+        </ul>
+        <button class="menu-btn open" id="open-menu">
+            <span class="menu-icon">
+                <span class="bars">Startida</span>
+                <span class="bars">Kurser</span>
+                <span class="bars">Om Sidan</span>
+            </span>
+            <span class="menu-text">Meny</span>
+        </button>
+        <nav id="nav-menu">
+            <button class="menu-btn close" id="close-menu">
+                <span class="menu-icon">
+                    <span class="bars cross1"></span>
+                    <span class="bars cross2"></span>
+                </span>
+                <span class="menu-text">Stäng</span>
+            </button>
+            <ul>
+                <li><a href="">Startida</a></li>
+                <li><a href="">Kurser</a></li>
+                <li><a href="">Om Sidan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Hello world</h1>
+        </div>
+
+        <form method="post">
+            <% if (error !== "") { %>
+                <p class="error">
+                    <%= error %>
+                </p>
+            <% } %>
+             
+            <label for="coursename">coursename:</label>
+            <br>
+            <input type="text" id="coursename" name="coursename">
+            <br>
+            <label for="coursecode">coursecode:</label>
+            <br>
+            <input type="text" id="coursecode" name="coursecode">
+            <br>
+            <label for="syllabus">syllabus:</label>
+            <br>
+            <input type="text" id="syllabus" name="syllabus">
+            <br>
+            <label for="progression">progression:</label>
+            <br>
+            <input type="text" id="progression" name="progression">
+            <br>
+            <input type="submit" value="Posta Kommentarer">
+        </form>
+
+        <h2>Befintliga kurser</h2>
+        <% if(locals.rows && locals.rows.length > 0) { %>
+            <% locals.rows.forEach((row) => { %>
+                <article>
+                    <p>
+                        <%= row.coursecode %>
+                    </p>
+                    <p>
+                        postat kursnamn: <%= row.coursename %>, den <%= row.posted %>
+                    </p>
+                </article>
+            <% }); %>
+        <% } else { %>
+            <p>Inga befintliga kurser hittades.</p>
+        <% } %>
+
+    </main>
+
+    <footer>
+        <p>@Melvin Bubini, 2024</p>
+    </footer>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

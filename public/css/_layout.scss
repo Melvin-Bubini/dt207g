@@ -1,0 +1,260 @@
+@use 'base';
+@use 'animations';
+
+body {
+    width: 100vw;
+    padding: 0%;
+    margin: 0%;
+    overflow-x: hidden;
+    line-height: base.$line-height;
+
+    @if base.$use-serif-font {
+        font-family: serif; // Tillämpa serif font family om villkoret är sant
+    }
+
+    @else {
+        font-family: sans-serif; // Annars, tillämpa sans-serif font family
+    }
+}
+
+
+/* HEADER STYLES*/
+
+/* STÖRRE SKÄRMAR */
+header {
+    display: flex;
+    align-items: center;
+    background-color: base.$main-color;
+}
+
+#logo {
+    width: 5em;
+}
+
+#logo-text {
+    color: base.$text-color;
+    width: fit-content;
+    text-decoration: none;
+    margin-left: 1em;
+    width: 15%;
+}
+
+#open-menu {
+    display: none;
+}
+
+#nav-menu {
+    display: none;
+}
+
+#bigScreenList {
+    display: flex;
+    width: 65%;
+    list-style-type: none;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1em;
+}
+
+.menyLänkar {
+    color: base.$text-color;
+    text-decoration: none;
+    @include base.h2-styles;
+    padding: 0.5em;
+}
+
+.menyLänkar:hover {
+    cursor: pointer;
+    color: white;
+    background-color: darken(base.$main-color, 10%);
+    border: solid black 3px;
+}
+
+
+
+/* MOBILLÄGE */
+@media screen and (max-width: 800px) {
+
+    #bigScreenList {
+        display: none;
+    }
+
+    #open-menu {
+        display: flex;
+    }
+
+    nav {
+        background-color: base.$main-color;
+        box-shadow: 0 0px 10px black;
+        font-size: 26px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        display: none;
+        z-index: 1000;
+        width: 50%;
+    }
+
+    nav ul {
+        width: 100%;
+        list-style-type: none;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    nav li {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    nav a {
+        color: base.$text-color;
+        text-decoration: none;
+        font-weight: 600;
+        @include base.p-styles;
+    }
+
+    nav a:hover {
+        cursor: pointer;
+        color: white;
+    }
+
+    .menu-text {
+        color: base.$text-color;
+    }
+}
+
+
+// MAIN STYLES
+
+main {
+    @include base.center-element;
+}
+
+h1 {
+    @include base.h1-styles;
+}
+
+h2 {
+    @include base.h2-styles;
+}
+
+p {
+    @include base.p-styles;
+}
+
+@media screen and (min-width: 801px) {
+    main {
+
+        article,
+        section {
+            width: base.$container-width-big;
+        }
+
+        div {
+            width: 47em;
+        }
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 800px) {
+    main {
+
+        article,
+        section {
+            width: base.$container-width-big;
+        }
+
+        div {
+            width: base.$container-width-big;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    main {
+
+        article,
+        section {
+            width: base.$container-width-small;
+        }
+
+        div {
+            width: base.$container-width-small;
+        }
+    }
+}
+
+
+
+
+/* FOOTER STYLES */
+
+footer {
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-top: 2em;
+    background-color: base.$main-color;
+}
+
+footer p {
+    width: fit-content;
+    margin-left: 2em;
+    font-weight: 600;
+    margin-top: 1em;
+    @extend p;
+}
+
+// färgschema
+
+@media (prefers-color-scheme: light) {
+
+    header,
+    footer,
+    nav,
+    .menu-btn {
+        background-color: base.$main-color;
+    }
+
+    body {
+        background-color: base.$background-color;
+    }
+
+    p,
+    h1,
+    h2,
+    .formRubrik {
+        color: base.$text-color;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    header,
+    footer,
+    nav,
+    .menu-btn {
+        background-color: base.$main-color-dark;
+    }
+
+    body {
+        background-color: base.$background-color-dark;
+    }
+
+    p,
+    h1,
+    h2,
+    .menyLänkar,
+    .formRubrik {
+        color: base.$text-color-dark;
+    }
+
+    .menyLänkar:hover {
+        color: base.$text-color;
+    }
+}

@@ -1,0 +1,56 @@
+// VARIABLER
+$line-height: 150%;
+$use-serif-font: false;
+$container-width-big: 25em;
+$container-width-small: 20em;
+
+/* Färgschema för ljust */
+$main-color: rgb(0, 162, 255);
+$text-color: black;
+$background-color: #ffffff;
+
+
+/* Färgschema för mörkt */
+$main-color-dark: darken($main-color, 25%);
+$text-color-dark: lighten($text-color, 99%);
+$background-color-dark: #383838;
+
+@mixin center-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@mixin h1-styles {
+    font-size: 2em;
+    font-weight: 600;
+    line-height: $line-height;
+    margin-bottom: 0%;
+}
+
+@mixin h2-styles {
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: $line-height;
+    
+    margin-bottom: 0%;
+}
+
+@mixin p-styles {
+    font-size: 1em;
+    line-height: $line-height;
+    
+    margin-top: 0%;
+}
+
+@property --color-1 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(0, 255, 34);
+}
+@property --color-2 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(248, 22, 147);
+}
